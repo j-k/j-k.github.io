@@ -1,0 +1,31 @@
+// Variables
+
+$white:    #fff !default;
+$gray-100: #EBEBEB !default;
+$gray-200: #4E5D6C !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #868e96 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:    #DF691A !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #d9534f !default;
+$orange:  #f0ad4e !default;
+$yellow:  #f0ad4e !default;
+$green:   #5cb85c !default;
+$teal:    #20c997 !default;
+$cyan:    #5bc0de !default;
+
+$theme-primary: $gray-600; // $gray-light;
+$theme-secondary: $gray-100; // $gray-dark;
+$theme-tertiary-1: $gray-800; //$gray-light;
+$theme-tertiary-2: $gray-200; // $gray-lighter;
+$body-bg: $gray-900; // #2B3E50 !default;
+$hanging-navbar: $gray-900;

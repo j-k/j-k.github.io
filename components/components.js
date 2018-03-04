@@ -1,0 +1,9 @@
+const document = require('./document').document
+const head = require('./head').head
+const body = require('./body').body
+const navigation = require('./navigation').navigation
+const page_header = require('./page_header').page_header
+const footer = require('./footer').footer
+const content = require('./content').content
+const index_content = require('./index').index_content
+module.exports = { document, head, body, navigation, page_header, footer, content, index_content }
