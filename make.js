@@ -18,7 +18,7 @@ const exit = process.exit
 const save = fs.writeFileSync
 
 // definitions that you might want to change
-const html_minify = false
+const html_minify = true
 
 // make the navigation bar
 const nav_bar = cmp.navigation( user.nav_items )
