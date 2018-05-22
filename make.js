@@ -54,6 +54,35 @@ for( let i = 0; i < pages.length; i++ ) {
   }
 }
 
+// np posts available at the moment
+/*
+// make the posts
+log("2. Generating posts")
+const posts = user.posts
+for( let i = 0; i < posts.length; i++ ) {
+  let head = cmp.head(
+    posts[i].page_title,
+    posts[i].page_description,
+    posts[i].keywords,
+    posts[i].author,
+  )
+  let page_header = cmp.page_header(
+    posts[i].title,
+    "post-heading",
+    posts[i].subtitle,
+    posts[i].image_url
+  )
+  let content = cmp.content( tools.pandoc( `posts/${posts[i].file}` ).toString(), true )
+  //log(content)
+  let doc = cmp.document( page_header, content, head, nav_bar, footer )
+  let filename = `${posts[i].name}.html`
+  save( filename, doc )
+  if( html_minify === true ) {
+    tools.minify_html( filename, filename )
+  }
+}
+*/
+
 // sass processor
 log("3. Run SASS")
 tools.sass( "scss", "css" )
