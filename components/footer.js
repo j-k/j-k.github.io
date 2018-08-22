@@ -1,5 +1,5 @@
 const make_brand_items = ( brand_items ) => {
-  out = ''
+  let out = ''
   for ( let i = 0; i < brand_items.length; i++ ) {
     out += `
       <li class="list-inline-item">

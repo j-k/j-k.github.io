@@ -1,4 +1,8 @@
-const document = ( page_header, page_content, head, nav_bar, footer, lang="en" ) => {
+const document = ( page_header, page_content, head, nav_bar, footer, prism = false, lang="en" ) => {
+  let prism_snippet = ''
+  if(prism) {
+    prism_snippet = '<script src="js/prism.js"></script>'
+  }
   return `
 <!DOCTYPE html>
 <html lang="${lang}">
@@ -12,6 +16,7 @@ ${footer}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="js/clean-blog.js"></script>
+${prism_snippet}
 </body>
 </html>
 `

@@ -1,11 +1,11 @@
 const make_post_previews = ( posts ) => {
-  out = ''
+  let out = ''
   for ( let i = 0; i < posts.length; i++ ) {
     out += `
 <div class="post-preview">
 <a href="${posts[i].name}.html">
-<h2 class="post-title">${posts[i].title}</h2>
-<h3 class="post-subtitle">${posts[i].subtitle}</h3>
+<h2 class="post-title">${posts[i].heading}</h2>
+<h3 class="post-subtitle">${posts[i].subheading}</h3>
 </a>
 <p class="post-meta">Posted by ${posts[i].author} on ${posts[i].date}</p>
 </div>

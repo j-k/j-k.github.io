@@ -46,8 +46,12 @@ function uglify( input_filename, output_filename ) {
   )
 }
 
-function pandoc( markdown_filename ) {
-  return cp.execFileSync( "pandoc" , [ markdown_filename ] )
+function pandoc( markdown_filename, mathjax = false ) {
+  if( mathjax ) {
+    return cp.execFileSync( `pandoc` , [ "--mathjax", markdown_filename ] )
+  } else {
+    return cp.execFileSync( `pandoc` , [ markdown_filename ] )
+  }
 }
 
 function copy_folder( from, to ) {

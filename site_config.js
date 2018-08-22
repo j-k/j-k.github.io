@@ -22,7 +22,18 @@ const brand_items = [
 
 const copyright = "Jens Kubacki 2018"
 
-const posts = []
+const posts = [
+  {
+    name: "hello",
+    heading: "Hello, World!",
+    subheading: "",
+    file: "hello_world.md",
+    author: author,
+    date: "5 June 2018",
+    mathjax: true,
+    prism: true
+  }
+]
 
 const pages = [
 	{
@@ -30,7 +41,8 @@ const pages = [
     heading: "Hi, there ...",
     heading_type: "site-heading",
     subheading: "... welcome to my website!",
-    content: cmp.index_content( posts )
+    content: cmp.index_content( posts ),
+    image_url: "img/home-bg.png"
   },
 	{
     name: "about",
@@ -48,4 +60,4 @@ const pages = [
   }
 ]
 
-module.exports = { site_title, site_description, site_keywords, author, nav_items, brand_items, copyright, pages }
+module.exports = { site_title, site_description, site_keywords, author, nav_items, brand_items, copyright, pages, posts }
