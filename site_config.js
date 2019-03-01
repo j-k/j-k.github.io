@@ -8,7 +8,7 @@ const tools = require( "./tools" )
 const site_title = "jkubacki"
 const site_description = "J. Kubacki's personal page"
 const site_keywords = "jens, kubacki, blog"
-const author = "J. Kubacki"
+const author = "Jens Kubacki"
 
 const nav_items = [
   ["index.html", "Home"],
@@ -22,18 +22,24 @@ const brand_items = [
 
 const copyright = "Jens Kubacki 2018"
 
+/*
 const posts = [
   {
-    name: "hello",
-    heading: "Hello, World!",
-    subheading: "",
-    file: "hello_world.md",
+    name: "hyper_ops",
+    heading: "Tiny code - big numbers",
+    subheading: "An easy introduction to hyperoperations",
+    file: "hyper_ops.md",
     author: author,
-    date: "5 June 2018",
+    date: "26 August 2018",
     mathjax: true,
-    prism: true
+    prism: true,
+    image_url: "img/hyper-bg.png",
+    keywords: "hyperoperations, hyperoperator, hyperoperators, ackermann function, recursion, recursive functions"
   }
 ]
+*/
+
+const posts = {}
 
 const pages = [
 	{

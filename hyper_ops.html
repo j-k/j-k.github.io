@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="undefined">
+<meta name="keywords" content=", hyperoperations, hyperoperator, hyperoperators, ackermann function, recursion, recursive functions">
+<meta name="author" content="Jens Kubacki">
+<title>jkubacki</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href="css/clean-blog.css" rel="stylesheet">
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"> </script>
+
+    <link href="css/prism.css" rel="stylesheet" />
+    <!--<link href="css/prism-atom-dark.css" rel="stylesheet" />-->
+    
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<div class="container">
+<!-- <a class="navbar-brand" href="index.html">Start Bootstrap</a>-->
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+Menu
+<i class="fa fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ml-auto">
+
+      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+    
+      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+    
+      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    
+</ul></div></div></nav>
+
+
+<header class="masthead" style="background-image: url('img/hyper-bg.png')">
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-10 mx-auto">
+<div class="post-heading">
+<h1>Tiny code - big numbers</h1>
+<span class="subheading">An easy introduction to hyperoperations</span>
+</div></div></div></div></header>
+
+<article>
+<div class="container"><div class="row">
+<div class="col-lg-8 col-md-10 mx-auto">
+<p>This is a short and easily accessible post about the intruiging topic of</p>
+<p>A tiny computer program may need ages to be computed. Even on the fastest computers. I am not referring to an <a href="https://en.wikipedia.org/wiki/Infinite_loop">infinite loop</a>. Such loop is computing endlessly. Here, a special class of computer programs is meant. These programs can compute very large numbers with just a few lines of code.</p>
+<p>Welcome of the world of <a href="https://en.wikipedia.org/wiki/Hyperoperation">hyperoperations</a>.</p>
+<p>This brief post is meant to be an easy-to-read introduction to hyperoperations. Some basic programming knowledge will be helpful but not required to understand the basic ideas. At the end of the post you will learn how to compute the largest number you've ever seen on your computer. Unless, you saw a higher number already.</p>
+<p>Do you remember early school classes? The <a href="https://en.wikipedia.org/wiki/Operation_(mathematics)">mathematical operation</a> <a href="https://en.wikipedia.org/wiki/Multiplication">multiplication</a> is nothing else than repeated <a href="https://de.wikipedia.org/wiki/Addition">addition</a>. And <a href="https://en.wikipedia.org/wiki/Exponentiation">exponentiation</a> is repeated multiplication. Here are some examples:</p>
+<p><br /><span class="math display">$$
+\begin{align}
+3\times 2 &amp;= \underbrace{2+2+2}_{3\,\text{times}}\\
+2^3 &amp;= \underbrace{2\times 2\times 2}_{3\,\text{times}}
+\end{align}
+$$</span><br /></p>
+<p>The horizontal braces annotate the number of repetitions.</p>
+<p>Easy, right. This is just common math. However, not so commonly known is that these two mathematical operations are members of a hierarchy of more and more heavy-to-compute operations. One can also repeat exponentiation and then repeat whatever comes after exponentiation and so on. The computations get heavier because at each level of this hierarchy the computational work of the level below gets multiplied.</p>
+<p>It is very easy to write a computer program that constructs hyperoperations. In the following code box a <a href="https://www.python.org/">Python</a> program is shown that defines a hyperoperator constructor and then uses it to prints out the results of some computations:</p>
+<pre><code class="lang-python">def hyper(k):
+  if k is 1:
+    return lambda x, y: x + y
+  #if k is 2:
+  #  return lambda x, y: x * y
+  else:
+    def operator(x, y):
+      lower_operator = hyper(k-1)
+      z = 0 if k < 3 else 1
+      for i in range(y):
+        z = lower_operator(x, z)
+      return z
+    return operator
+
+print(
+  hyper(1)(2,3),
+  hyper(2)(2,3),
+  hyper(3)(2,3),
+  hyper(4)(2,3),
+  #hyper(4)(2,5),
+  hyper(5)(2,3)
+)
+</code></pre>
+<p>A few lines are inactive. These are preceeded by the <code>#</code> (comment) symbol. More on this later.</p>
+<p>If you have Python installed, then give it a try and open a command line console. Type <code>python</code>, copy the code above and paste it right after the <code>&gt;&gt;&gt;</code> prompt. The response should be:</p>
+<pre><code class="lang-default">
+5 6 8 16 65536
+</code></pre>
+<p>These are results for <span class="math inline">2 + 3</span> (<code>hyper(1)</code>), <span class="math inline">2 × 3</span> (<code>hyper(2)</code>), and <span class="math inline">2<sup>3</sup></span> (<code>hyper(3)</code>). The next hyperoperation, <code>hyper(4)</code>, is sometimes written as <span class="math inline"><sup>3</sup>2</span> and called <a href="https://en.wikipedia.org/wiki/Tetration">tetration</a>, a mixture of <em>iteration</em> and <em>tetra-</em> (four). With just two small inputs, <span class="math inline">1</span> and <span class="math inline">2</span>, the result is already <span class="math inline">65536</span>.</p>
+<p>Now, put the code into a text editor and change the line:</p>
+<pre><code class="lang-python">
+#hyper(4)(2,5),
+</code></pre>
+<p>to:</p>
+<pre><code class="lang-python">
+hyper(4)(2,5),
+</code></pre>
+<p>This activates the computation of the <span class="math inline">5</span>th tetration of <span class="math inline">2</span>. Running this code takes a very, very long time. Let's not await the end. Close the console window.</p>
+<p>A simple trick speed speeds up the code. The idea is to use the built-in multiplication for <code>hyper(2)</code>. Activate the remaining two deactivated lines such that they become:</p>
+<pre><code class="lang-python">
+if k is 2:
+  return lambda x, y: x * y
+</code></pre>
+<p>Running the code again should yield a much quicker result. My computer (Intel i7-5820K based) responses almost immediately.</p>
+<p>The result should now be printed to the console window. An impressive number made of <span class="math inline">19729</span> digits. Here is a cut version:</p>
+<pre><code class="lang-default">
+20035299304068464649790723515602557504478254755697
+... (19629 more digits)
+95337539755822087777506072339445587895905719156736
+</code></pre>
+<p>A larger part of this number is shown in the background image at the top of this post.</p>
+<p>This post hardly scratches the surface of the topic of hyperoperations.</p>
+<p>Have fun.</p>
+<p>Jens</p>
+
+</div></div></div>
+</article>
+
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-10 mx-auto">
+<ul class="list-inline text-center">
+
+      <li class="list-inline-item">
+      <a href="https://github.com/j-k">
+      <span class="fa-stack fa-lg">
+      <!--<i class="fa fa-circle fa-stack-2x"></i>-->
+      <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span></a></li>
+    
+</ul>
+<p class="copyright text-muted">Copyright &copy; Jens Kubacki 2018. Last edit: see <a href="https://github.com/j-k/j-k.github.io">this github repository.</a></p> 
+<p class="copyright text-muted">
+<a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://licensebuttons.net/l/by/4.0/88x31.png" alt="Creative Commons Attribution 4.0" width="88" height="31" />
+</a>
+<br>
+This wiki is licensed to the public under a Creative Commons Attribution 4.0 license.
+</p>
+</div></div></div></footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="js/clean-blog.js"></script>
+<script src="js/prism.js"></script>
+</body>
+</html>

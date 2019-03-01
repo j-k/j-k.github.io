@@ -7,7 +7,7 @@ const head = ( title, description, keywords,  author, mathjax = false, prism = f
   if(prism) {
     prism_snippet = `
     <link href="css/prism.css" rel="stylesheet" />
-    <link href="css/prism-atom-dark.css" rel="stylesheet" />
+    <!--<link href="css/prism-atom-dark.css" rel="stylesheet" />-->
     `
   }
   return `

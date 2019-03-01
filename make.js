@@ -8,6 +8,7 @@ const tools = require("./tools")
 
 // the components render the different HTML bootstrap elements
 const cmp = require("./components/components")
+
 // site_config contains all the common user-defined data
 // and a list of posts information
 const user = require("./site_config") // user data

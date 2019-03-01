@@ -10,7 +10,7 @@ p {
   line-height: 1.5;
   margin: 30px 0;
   a {
-    text-decoration: underline;
+    text-decoration: none; //underline;
   }
 }
 
@@ -25,11 +25,11 @@ h6 {
 }
 
 a {
-  color: $theme-tertiary-1; //$theme-secondary;
+  color: $gray-500;
   @include transition-all;
   &:focus,
   &:hover {
-    color: $theme-primary;
+    color: $theme-tertiary-2;
   }
 }
 
@@ -86,4 +86,11 @@ img::-moz-selection {
 
 body {
   -webkit-tap-highlight-color: $theme-primary;
+}
+
+code {
+  font-size: 20px;
+  color: white;
+  background: transparent;
+  font-family: "Courier New", Courier, monospace;
 }
