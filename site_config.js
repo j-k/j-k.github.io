@@ -17,10 +17,12 @@ const nav_items = [
 ]
 
 const brand_items = [
-  { "link": "https://github.com/j-k", brand: "github" }
+  {"link": "https://www.linkedin.com/in/jens-kubacki-99aa7286", brand: "linkedin"},
+  {"link": "https://github.com/j-k", brand: "github"},
+  {"link": "https://instagram.com/jkub4cki", brand: "instagram"}
 ]
 
-const copyright = "Jens Kubacki 2018"
+const copyright = "Jens Kubacki 2019"
 
 /*
 const posts = [

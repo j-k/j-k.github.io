@@ -21,11 +21,10 @@ const footer = ( brand_items, copyright ) => {
 <ul class="list-inline text-center">
 ${make_brand_items( brand_items )}
 </ul>
-<p class="copyright text-muted">Copyright &copy; Jens Kubacki 2018. Last edit: see <a href="https://github.com/j-k/j-k.github.io">this github repository.</a></p> 
+<p class="copyright text-muted">Copyright &copy; ${copyright}. Last edit: see <a href="https://github.com/j-k/j-k.github.io">this github repository.</a></p> 
 <p class="copyright text-muted">
 <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://licensebuttons.net/l/by/4.0/88x31.png" alt="Creative Commons Attribution 4.0" width="88" height="31" />
 </a>
-<br>
 This wiki is licensed to the public under a Creative Commons Attribution 4.0 license.
 </p>
 </div></div></div></footer>
