@@ -24,6 +24,7 @@ const brand_items = [
 
 const copyright = "Jens Kubacki 2019"
 
+// This is just a test post
 /*
 const posts = [
   {
