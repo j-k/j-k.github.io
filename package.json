@@ -4,14 +4,17 @@
   "description": "\"Personal page\"",
   "main": "\"\"",
   "scripts": {
-    "make": "node make.js"
+    "make": "node make.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "Jens Kubacki",
   "license": "MIT",
   "dependencies": {
     "html-minifier": "^3.5.21",
     "node-sass": "^4.13.1",
-    "uglify-js": "^3.8.0"
+    "uglify-js": "^3.8.0",
+    "snyk": "^1.316.1"
   },
   "homepage": "https://github.com/j-k/clean-blog-scripts",
   "bugs": {
@@ -23,5 +26,6 @@
   },
   "keywords": [
     "blog"
-  ]
+  ],
+  "snyk": true
 }
